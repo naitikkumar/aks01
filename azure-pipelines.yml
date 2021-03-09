@@ -23,7 +23,9 @@ stages:
               repository: 'yoga'
               command: 'buildAndPush'
               Dockerfile: '$(dockerfileloc)'
-              tags: '$(buildtag)'
+              tags:  |
+               '$(buildtag)'
+               '$(Build.SourceVersion)'
             condition: succeeded()
       
       - job: publish
