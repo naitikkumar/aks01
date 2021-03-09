@@ -24,7 +24,6 @@ stages:
               command: 'buildAndPush'
               Dockerfile: '$(dockerfileloc)'
               tags:  |
-               '$(buildtag)'
                '$(Build.SourceVersion)'
             condition: succeeded()
       
