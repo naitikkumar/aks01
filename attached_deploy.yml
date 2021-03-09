@@ -17,10 +17,6 @@ spec:
       - name: yoga-app
         image: mydemoreg.azurecr.io/yoga
         imagePullPolicy: Always
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 80
 ---
