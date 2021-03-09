@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: yoga-app
-        image: myacrdemo2021.azurecr.io/app1/yoga:latest
+        image: mydemoreg.azurecr.io/yoga
         imagePullPolicy: Always
         resources:
           limits:
