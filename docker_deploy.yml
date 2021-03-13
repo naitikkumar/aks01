@@ -9,7 +9,7 @@ trigger:
 stages:
   - stage: 
     jobs:
-      - job: 
+      - job: Build_and_Push_image_ACR
         pool:
           vmImage: $(vmimagename)
         variables:
