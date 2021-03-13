@@ -43,3 +43,25 @@ stages:
               command: 'push'
               tags: '$(tag)'
             condition: succeeded()
+        
+      - job: Copyfile_to_Artifact
+        pool:
+         vmImage: $(vmimagename)
+        variables:
+         vmimagename: 'ubuntu-latest'
+        steps:
+        - task: CopyFiles@2
+          displayName: copy yaml to Artifact staging directory
+          inputs:
+            SourceFolder: '$(Build.SourcesDirectory)'
+            Contents: '*.yml'
+            TargetFolder: '$(Build.ArtifactStagingDirectory)'
+            OverWrite: true
+          
+        - task: PublishBuildArtifacts@1
+          displayName: publish artifact
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+            publishLocation: 'Container'
+          condition: succeeded()
