@@ -14,7 +14,7 @@ stages:
           vmImage: $(vmimagename)
         variables:
           vmimagename: 'ubuntu-latest'
-          dockerfileloc: '$(Build.SourcesDirectory)'
+          dockerfileloc: '$(Build.SourcesDirectory)/Dockerfile'
           tag: |
             $(Build.BuildId)
             $(Build.SourceVersion)
